@@ -1,0 +1,4 @@
+# cat .gitconfig-example >> .git/config
+[merge "keeplocalversion"]
+        name = "Keep local pom version"
+        driver = /tmp/demo-repo/custom-merge-driver.sh
