@@ -76,7 +76,7 @@ D             pom.xml
 ```
 
 
-working directory is empty, but `HEAD.gitattributes` exists
+working directory is empty, but `HEAD:.gitattributes` exists
 ```shell
 $ git show HEAD:.gitattributes
 * merge=keeplocalversion
@@ -105,4 +105,14 @@ Merge Driver is active
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 Auto-merging pom.xml
 Merge made by the 'recursive' strategy.
+```
+
+Use "new" default merge strategy _ort_. Changed with Git 2.34 (breaks backwards compatibility).
+_ort_ **doesn't** execute the merge driver
+
+```shell
+$ git merge -m 'Automatic merge' --no-ff --no-log --allow-unrelated-histories --no-verify 561da86fa3990aa712aa3ec6681dfafd50def3a0 4814fce142b95b910d0cbe87c3c304b15f279a0a
+Auto-merging pom.xml
+CONFLICT (content): Merge conflict in pom.xml
+Automatic merge failed; fix conflicts and then commit the result.
 ```
